@@ -1,0 +1,40 @@
+@use "../assets/styles/variables" as v;
+@use "../assets/styles/mixins" as m;
+
+.insulin-card {
+  @include m.gradient-card;
+  text-align: center;
+  width: 100%;
+  margin: 0; 
+  padding: v.$spacing-base;
+  position: relative;
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-sm;
+  }
+
+  .title {
+    font-size: v.$font-size-lg;
+    font-weight: 600;
+    margin-bottom: v.$spacing-sm;
+  }
+
+  .equals {
+    font-size: v.$font-size-base;
+    font-weight: 500;
+    margin: v.$spacing-sm 0;
+  }
+
+  .description {
+    font-size: v.$font-size-sm;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+}

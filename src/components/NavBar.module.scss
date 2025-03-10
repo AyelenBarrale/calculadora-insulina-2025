@@ -1,0 +1,63 @@
+@use "../assets/styles/variables" as v;
+@use "../assets/styles/mixins" as m;
+
+.navbar {
+  background: white;
+  padding: v.$spacing-md v.$spacing-xl;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    a {
+      color: v.$primary;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+
+  .navLinks {
+    display: flex;
+    gap: v.$spacing-lg;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      a {
+        color: v.$text-primary;
+        text-decoration: none;
+        font-weight: 500;
+        padding: v.$spacing-sm v.$spacing-md;
+        border-radius: v.$border-radius;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: v.$background-hover;
+          color: v.$primary;
+        }
+
+        &.active {
+          background: v.$primary;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: v.$spacing-md;
+    flex-direction: column;
+    gap: v.$spacing-md;
+    text-align: center;
+
+    .navLinks {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

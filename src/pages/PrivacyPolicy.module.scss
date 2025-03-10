@@ -1,0 +1,42 @@
+@use "../assets/styles/variables" as v;
+@use "../assets/styles/mixins" as m;
+
+.privacyContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+.section {
+  margin-bottom: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .privacyContainer {
+    padding: v.$spacing-lg;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .section {
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+}
+

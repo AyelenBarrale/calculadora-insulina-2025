@@ -1,0 +1,4 @@
+<invoke name="list_dir">
+<parameter name="relative_workspace_path">src</parameter>
+<parameter name="explanation">Verificando la estructura actual del proyecto para determinar dónde agregar los nuevos componentes.</parameter>
+</invoke> 

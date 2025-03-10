@@ -1,0 +1,67 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "sass:color";
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    @include m.rounded();
+    transition: all 0.3s ease;
+
+    &-primary {
+        background-color: v.$primary-color;
+        color: v.$white;
+        @include m.shadow();
+
+        &:hover {
+            background-color: color.adjust(v.$primary-color, $lightness: -10%);
+            @include m.shadow-lg();
+        }
+    }
+
+    &-secondary {
+        background-color: v.$secondary-color;
+        color: v.$white;
+        @include m.shadow();
+
+        &:hover {
+            background-color: color.adjust(v.$secondary-color, $lightness: -10%);
+            @include m.shadow-lg();
+        }
+    }
+
+    &-outline {
+        background-color: transparent;
+        border-color: v.$border-color;
+        color: color.adjust(v.$text-muted, $lightness: -10%);
+
+        &:hover {
+            background-color: v.$border-color;
+            color: color.adjust(v.$text-muted, $lightness: -10%);
+        }
+    }
+
+    &-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        @include m.rounded(20px);
+    }
+
+    &-lg {
+        padding: 1rem 2rem;
+        font-size: 1.25rem;
+        @include m.rounded(40px);
+    }
+
+    &:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+        color: color.adjust(v.$text-muted, $lightness: -10%);
+    }
+}

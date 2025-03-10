@@ -1,0 +1,56 @@
+@use "../assets/styles/variables" as v;
+@use "../assets/styles/mixins" as m;
+
+.footer {
+  background-color: #f8fafc;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: v.$spacing-md v.$spacing-xl;
+  margin-top: auto;
+  width: 100%;
+
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .leftContent {
+    a {
+      color: v.$text-secondary;
+      text-decoration: none;
+      
+      &:hover {
+        color: v.$primary;
+      }
+    }
+  }
+
+  .rightContent {
+    .copyright {
+      color: v.$text-secondary;
+      font-size: 0.9rem;
+
+      a {
+        color: v.$primary;
+        text-decoration: none;
+        font-weight: 500;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: v.$spacing-md;
+    
+    .content {
+      flex-direction: column;
+      gap: v.$spacing-md;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "reset";
+@use "variables" as v;
+@use "mixins" as m;
+@use "global";
+@use "buttons";
+
+// Si necesitas exponer estos módulos a otros archivos
+@forward "variables";
+@forward "mixins";
+
+// Otros imports que puedas necesitar

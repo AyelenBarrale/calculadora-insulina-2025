@@ -1,0 +1,31 @@
+.calculator-card {
+    @include m.card;
+    background: v.$white;
+    padding: v.$spacing-lg;
+    margin: 0;
+    
+    .title {
+      font-size: v.$font-size-lg;
+      font-weight: 600;
+      margin-bottom: v.$spacing-base;
+      color: v.$text-color;
+    }
+  
+    .result {
+      font-size: v.$font-size-xl;
+      font-weight: 700;
+      color: v.$primary-color;
+      text-align: center;
+      margin: v.$spacing-base 0;
+    }
+  
+    .calculation-details {
+      font-size: v.$font-size-sm;
+      color: v.$text-muted;
+      margin-top: v.$spacing-base;
+    }
+  
+    @media (max-width: 768px) {
+      margin-top: v.$spacing-lg;
+    }
+  }

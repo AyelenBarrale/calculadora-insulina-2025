@@ -1,0 +1,78 @@
+@use "variables" as v;
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f8fafc;
+  color: v.$text-color;
+  font-family: v.$font-family-base;
+  line-height: 1.6;
+  padding: v.$spacing-xl;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 v.$spacing-base;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: v.$spacing-xl;
+  align-items: start;
+
+  .main-content {
+    width: 100%;
+  }
+
+  .side-content {
+    position: sticky;
+    top: v.$spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-lg;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: v.$spacing-lg;
+
+    .side-content {
+      position: static;
+      order: -1; 
+      margin-top: 0;
+    }
+
+    .main-content {
+      width: 100%;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: 600;
+  color: v.$text-color;
+}
+
+.app-title {
+  font-size: v.$font-size-xxl;
+  text-align: center;
+  margin-bottom: v.$spacing-xl;
+  color: v.$text-color;
+  font-weight: 700;
+}

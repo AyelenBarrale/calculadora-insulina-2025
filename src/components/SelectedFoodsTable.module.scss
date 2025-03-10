@@ -1,0 +1,237 @@
+@use "../assets/styles/variables" as v;
+@use "../assets/styles/mixins" as m;
+@use "sass:math";
+@use "sass:color";
+
+.table-container {
+  @include m.card;
+  margin: v.$spacing-lg 0;
+  overflow-x: auto;
+}
+
+.foods-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: v.$spacing-base 0;
+  
+  th, td {
+    padding: v.$spacing-base;
+    text-align: left;
+    border-bottom: 1px solid v.$border-color;
+  }
+
+  th {
+    font-weight: 600;
+    color: v.$text-color;
+    background-color: rgba(v.$primary-color, 0.05);
+  }
+
+  td {
+    color: v.$text-muted;
+  }
+
+  tr {
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(v.$primary-color, 0.02);
+    }
+  }
+
+  .quantity-cell {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-base;
+  }
+
+  .delete-button {
+    background-color: transparent;
+    border: none;
+    color: v.$text-muted;
+    cursor: pointer;
+    padding: v.$spacing-base;
+    border-radius: v.$border-radius;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #dc3545;
+      background-color: rgba(220, 53, 69, 0.1);
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: v.$spacing-xl;
+    color: v.$text-muted;
+    font-style: italic;
+  }
+}
+
+.total-row {
+  font-weight: 600;
+  background-color: rgba(v.$primary-color, 0.05);
+  
+  td {
+    color: v.$text-color;
+  }
+}
+
+@media (max-width: 768px) {
+  .foods-table {
+    th, td {
+      padding: math.div(v.$spacing-base, 2);
+      font-size: v.$font-size-sm;
+    }
+  }
+}
+
+.quantity-input {
+  width: 60px;
+  padding: math.div(v.$spacing-base, 2);
+  border: 1px solid v.$border-color;
+  border-radius: v.$border-radius;
+  text-align: center;
+  
+  &:focus {
+    outline: none;
+    border-color: v.$primary-color;
+    box-shadow: 0 0 0 2px rgba(v.$primary-color, 0.1);
+  }
+
+  &::-webkit-inner-spin-button {
+    opacity: 1;
+    height: 20px;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: v.$spacing-xl;
+  color: v.$text-muted;
+  font-style: italic;
+  background-color: v.$white;
+  border-radius: v.$border-radius;
+}
+
+.action-button {
+    background-color: rgba(v.$primary-color, 0.1);
+    color: v.$primary-color;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  
+    &:hover {
+      background-color: rgba(v.$primary-color, 0.15);
+      transform: scale(1.05);
+    }
+  
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  
+  .delete-button {
+    background-color: transparent;
+    color: v.$text-muted;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s ease;
+  
+    &:hover {
+      background-color: rgba(220, 53, 69, 0.1);
+      color: #dc3545;
+    }
+  
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+.clear-button {
+  background: v.$primary-color;
+  color: v.$white;
+  border: none;
+  padding: v.$spacing-base v.$spacing-lg;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: v.$font-size-base;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: v.$spacing-base 0;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &::after {
+    content: '🗑️';
+    margin-left: v.$spacing-base;
+    font-size: 1.1em;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: color.adjust(v.$primary-color, $lightness: -5%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 
+      0 5px 10px -5px rgba(220, 53, 69, 0.3),
+      0 0 8px rgba(220, 53, 69, 0.2);
+    
+    &::after {
+      transform: rotate(-10deg);
+    }
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulse 1.5s infinite;
+  }
+}

@@ -1,0 +1,41 @@
+@use "../assets/styles/variables" as v;
+@use "../assets/styles/mixins" as m;
+
+.blogPost {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: v.$spacing-xl;
+
+  .header {
+    margin-bottom: v.$spacing-xl;
+
+    h1 {
+      font-size: 2.5rem;
+      color: v.$text-primary;
+      margin-bottom: v.$spacing-lg;
+    }
+
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: v.$border-radius;
+    }
+  }
+
+  .content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: v.$text-secondary;
+
+    p {
+      margin-bottom: v.$spacing-lg;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .blogPost {
+    padding: v.$spacing-lg;
+  }
+}

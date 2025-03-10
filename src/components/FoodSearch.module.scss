@@ -1,0 +1,129 @@
+@use "../assets/styles/variables" as v;
+@use "../assets/styles/mixins" as m;
+
+.food-search {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  .disclaimer {
+    color: v.$text-muted;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .searchInput {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid v.$border-color;
+    @include m.rounded(8px);
+    margin-bottom: 1rem;
+    
+    &:focus {
+      outline: none;
+      border-color: v.$primary-color;
+    }
+  }
+
+  .foodList {
+    list-style: none;
+    
+    .foodItem {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem;
+      border-bottom: 1px solid v.$border-color;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .foodName {
+        font-weight: bold;
+        flex: 2;
+      }
+
+      .foodPortion {
+        color: v.$text-muted;
+        margin: 0 0.5rem;
+      }
+
+      .foodCarbs {
+        color: v.$primary-color;
+        font-weight: 500;
+        margin: 0 0.5rem;
+      }
+
+      .addButton {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 0.3rem 0.6rem;
+        @include m.rounded(50%);
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: rgba(v.$primary-color, 0.1);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+    padding: 0.5rem;
+
+    .foodItem {
+      flex-wrap: wrap;
+      
+      .foodName {
+        flex: 100%;
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+}
+
+.search-container {
+  @include m.card;
+  margin-bottom: v.$spacing-xl;
+
+  h2 {
+    @include m.heading;
+    font-size: v.$font-size-xl;
+  }
+
+  .search-input {
+    @include m.input-field;
+    margin-bottom: v.$spacing-lg;
+  }
+
+  .search-note {
+    color: v.$text-muted;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: v.$spacing-base;
+    font-style: italic;
+  }
+}
+
+.selected-foods {
+  @include m.card;
+  margin-top: v.$spacing-xl;
+
+  h3 {
+    @include m.heading;
+    font-size: v.$font-size-lg;
+  }
+
+  .empty-state {
+    color: v.$text-muted;
+    text-align: center;
+    padding: v.$spacing-lg;
+  }
+}

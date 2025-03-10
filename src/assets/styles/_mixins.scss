@@ -1,0 +1,62 @@
+@use "sass:color";
+@use "variables" as v;
+
+@mixin shadow {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+  
+@mixin rounded($radius: 30px) {
+    border-radius: $radius;
+}
+
+@mixin shadow-lg {
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@mixin card {
+  background: v.$white;
+  border-radius: v.$border-radius;
+  box-shadow: v.$shadow;
+  padding: v.$spacing-lg;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: v.$shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin gradient-card {
+  background: v.$gradient-primary;
+  color: v.$white;
+  border-radius: v.$border-radius-lg;
+  padding: v.$spacing-xl;
+  box-shadow: v.$shadow;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: v.$shadow-lg;
+    transform: translateY(-3px);
+  }
+}
+
+@mixin input-field {
+  width: 100%;
+  padding: v.$spacing-base;
+  border: 2px solid v.$border-color;
+  border-radius: v.$border-radius;
+  font-size: v.$font-size-base;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    border-color: v.$primary-color;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+    outline: none;
+  }
+}
+
+@mixin heading {
+  color: v.$text-color;
+  font-weight: 600;
+  margin-bottom: v.$spacing-lg;
+}
