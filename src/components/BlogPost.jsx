@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
+import BlogPostSchema from './BlogPostSchema';
 import styles from './BlogPost.module.scss';
 
 const BlogPost = () => {
@@ -38,6 +40,15 @@ const BlogPost = () => {
 
   return (
     <>
+      <SEO 
+        title={title}
+        description={metaDescription}
+        keywords={post.keywords}
+        image={post.image}
+        url={`/blog/${slug}`}
+        type="article"
+      />
+      <BlogPostSchema post={post} />
       <Helmet>
         <title>{title} | Calculadora de Insulina</title>
         <meta name="description" content={metaDescription} />

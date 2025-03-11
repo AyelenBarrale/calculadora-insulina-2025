@@ -10,7 +10,7 @@ const SEO = ({
 }) => {
   const siteTitle = 'Calculadora de Insulina';
   const defaultDescription = 'Calcula tu dosis de insulina de forma precisa y segura. Herramienta gratuita para personas con diabetes.';
-  const defaultImage = '/og-image.jpg'; // Imagen por defecto para compartir
+  const defaultImage = 'src/assets/images/calculadora-insulina.jpg'; // Imagen por defecto para compartir
   const siteUrl = 'https://www.tudosisdeinsulina.com'; // Tu dominio
 
   return (
