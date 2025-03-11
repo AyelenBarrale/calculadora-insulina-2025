@@ -2,5 +2,9 @@
 I used cursor as IDE for this project and transformed it from Vanilla Javascript and JSON to React JS and Firebase Real Time Database.
 
 
-https://github.com/user-attachments/assets/2b4ff00c-b55c-4c10-9fc2-060062494beb
+
+
+
+
+https://github.com/user-attachments/assets/f24942d0-bd2e-4679-b977-fdf2f164567d
 
