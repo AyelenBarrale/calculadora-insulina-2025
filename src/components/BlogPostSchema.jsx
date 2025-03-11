@@ -26,3 +26,4 @@ const BlogPostSchema = ({ post }) => {
     </script>
   );
 };
+export default BlogPostSchema;
