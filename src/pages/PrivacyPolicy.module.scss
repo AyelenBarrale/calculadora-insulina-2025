@@ -4,11 +4,26 @@
 .privacyContainer {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: v.$spacing-xl;
 
   h1 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: v.$spacing-xl;
+    color: v.$text-primary;
+    font-size: 2.5rem;
+  }
+
+  p {
+    margin-bottom: v.$spacing-xl;
+    line-height: 1.6;
+    color: v.$text-secondary;
+  }
+
+  h2 {
+    margin-top: v.$spacing-xl * 2;
+    margin-bottom: v.$spacing-lg;
+    color: v.$text-primary;
+    font-size: 1.8rem;
   }
 }
 

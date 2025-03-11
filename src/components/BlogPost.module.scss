@@ -1,10 +1,41 @@
 @use "../assets/styles/variables" as v;
 @use "../assets/styles/mixins" as m;
 
-.blogPost {
+.backLinkContainer {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: transparent;
+}
+
+.backLinkWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: v.$spacing-sm v.$spacing-xl;
+  width: 100%;
+}
+
+.backLink {
+  display: inline-block;
+  color: v.$text-secondary;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: v.$primary;
+  }
+}
+
+.container {
   max-width: 800px;
   margin: 0 auto;
-  padding: v.$spacing-xl;
+  padding: v.$spacing-md v.$spacing-xl;
+  width: 100%;
+}
+
+.blogPost {
+  margin-bottom: v.$spacing-xl;
 
   .header {
     margin-bottom: v.$spacing-xl;
@@ -12,7 +43,22 @@
     h1 {
       font-size: 2.5rem;
       color: v.$text-primary;
-      margin-bottom: v.$spacing-lg;
+      margin-bottom: v.$spacing-md;
+      line-height: 1.2;
+    }
+
+    .meta {
+      display: flex;
+      gap: v.$spacing-md;
+      color: v.$text-secondary;
+      font-size: 0.9rem;
+
+      .author {
+        &:before {
+          content: "•";
+          margin-right: v.$spacing-md;
+        }
+      }
     }
 
     img {
@@ -28,14 +74,64 @@
     line-height: 1.8;
     color: v.$text-secondary;
 
+    h2 {
+      font-size: 1.8rem;
+      color: v.$text-primary;
+      margin: v.$spacing-xl 0 v.$spacing-md;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: v.$text-primary;
+      margin: v.$spacing-lg 0 v.$spacing-md;
+    }
+
     p {
       margin-bottom: v.$spacing-lg;
+    }
+
+    ul, ol {
+      margin: v.$spacing-md 0;
+      padding-left: v.$spacing-xl;
+
+      li {
+        margin-bottom: v.$spacing-sm;
+      }
     }
   }
 }
 
 @media (max-width: 768px) {
+  .backLinkWrapper {
+    padding: v.$spacing-sm v.$spacing-md;
+  }
+
+  .container {
+    padding: v.$spacing-md;
+  }
+
   .blogPost {
-    padding: v.$spacing-lg;
+    .header {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .meta {
+        flex-direction: column;
+        gap: v.$spacing-sm;
+
+        .author {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .blogPost {
+    margin-left: 100px;
   }
 }

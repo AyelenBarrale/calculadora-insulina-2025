@@ -1,0 +1,31 @@
+.mdx-h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.mdx-h2 {
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+  color: var(--text-primary);
+}
+
+.mdx-h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  color: var(--text-primary);
+}
+
+.mdx-p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.mdx-ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.mdx-li {
+  margin-bottom: 0.5rem;
+}
