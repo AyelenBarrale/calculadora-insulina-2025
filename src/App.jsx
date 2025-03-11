@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { MDXWrapper } from './components/MDXProvider';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [selectedFoods, setSelectedFoods] = useState([]);
@@ -35,6 +36,7 @@ function App() {
     <HelmetProvider>
       <MDXWrapper>
         <Router>
+          <ScrollToTop />
           <div className="app">
             <Navbar />
             <main className="main-container">
